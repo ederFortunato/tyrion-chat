@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 		concat: {
 			dist: {
 				src: ["src/client/js/*.js"],
-				dest: "dist/client/js/tyrion-chat.js"
+				dest: "dist/client/js/jquery.tyrion-chat.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"
@@ -39,8 +39,8 @@ module.exports = function(grunt) {
 		// Minify definitions
 		uglify: {
 			my_target: {
-				src: ["dist/client/js/tyrion-chat.js"],
-				dest: "dist/client/js/tyrion-chat.min.js"
+				src: ["dist/client/js/jquery.tyrion-chat.js"],
+				dest: "dist/client/js/jquery.tyrion-chat.min.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"
