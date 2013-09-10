@@ -45,6 +45,17 @@ module.exports = function(grunt) {
 			options: {
 				banner: "<%= meta.banner %>"
 			}
+		},
+
+		cssmin: {
+			combine: {
+				files: {
+					"dist/client/css/jquery.tyrion-chat.min.css": ["src/client/css/jquery.tyrion-chat.css"]
+				}
+			},
+			options: {
+				banner: "<%= meta.banner %>"
+			}
 		}
 
 	});
@@ -52,7 +63,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
+	grunt.loadNpmTasks("grunt-contrib-cssmin");
 
-	grunt.registerTask("default", ["jshint", "concat", "uglify"]);
+	grunt.registerTask("default", ["jshint", "concat", "uglify", "cssmin"]);
 
 };

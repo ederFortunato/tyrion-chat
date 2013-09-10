@@ -1,16 +1,21 @@
 {
-	"name": "tyrion-chat",
-	"title": "Tyrion Chat jQuery",
-	"description": "a simples chat system, like gTalk or facebook, and which always pays his debts.",
-	"author": "Eder Fortunato",
-	"repository": {
-		"type" : "git",
-		"url" : "http://github.com/ederFortunato/tyrion-chat.git"
-	},
-	"homepage": "https://github.com/ederFortunato/tyrion-chat",
-	"version": "0.0.1",
-	"devDependencies": {
-		"grunt": "~0.4.1",
-		"grunt-cli": "~0.1.7"
-	}
+  "name": "tyrion-chat",
+  "title": "Tyrion Chat jQuery",
+  "description": "a simples chat system, like gTalk or facebook, and which always pays his debts.",
+  "author": "Eder Fortunato",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/ederFortunato/tyrion-chat.git"
+  },
+  "homepage": "https://github.com/ederFortunato/tyrion-chat",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.7",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "clean-css": "~0.8.0"
+  }
 }
