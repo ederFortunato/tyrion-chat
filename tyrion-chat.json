@@ -1,0 +1,31 @@
+{
+	"name": "tyrion-chat",
+	"title": "Tyrion Chat jQuery",
+	"description": "a simples chat system, like gTalk or facebook, and which always pays his debts.",
+	"keywords": [
+		"jquery",
+		"node",
+		"chat",
+		"facebook",
+		"gtalk"
+	],
+	"version": "0.0.1",
+	"author": {
+		"name": "Eder Fortunato",
+		"email": "eder.fortunato@gmail.com",
+		"url": "https://github.com/ederFortunato"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://opensource.org/licenses/MIT"
+		}
+	],
+	"bugs": "https://github.com/ederFortunato//tyrion-chat/issues",
+	"homepage": "https://github.com/ederFortunato//tyrion-chat/",
+	"docs": "https://github.com/ederFortunato//tyrion-chat#readme",
+	"download": "https://github.com/ederFortunato//tyrion-chat/archive/master.zip",
+	"dependencies": {
+		"jquery": ">=1.4"
+	}
+}
