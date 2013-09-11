@@ -47,15 +47,23 @@ module.exports = function(grunt) {
 			}
 		},
 
-		cssmin: {
-			combine: {
+		less: {
+			production: {
+				options: {
+					paths: ["src/client/less/"],
+					yuicompress: true
+				},
 				files: {
-					"dist/client/css/jquery.tyrion-chat.min.css": ["src/client/css/jquery.tyrion-chat.css"]
+					"dist/client/css/jquery.tyrion-chat.min.css": "src/client/less/jquery.tyrion-chat.less"
 				}
-			},
-			options: {
-				banner: "<%= meta.banner %>"
 			}
+		},
+		watch: {
+			options: {
+				livereload: true
+			},
+			files: "src/client/less/*",
+			tasks: ["less"]
 		}
 
 	});
@@ -63,8 +71,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
-	grunt.loadNpmTasks("grunt-contrib-cssmin");
+	grunt.loadNpmTasks("grunt-contrib-less");
+	grunt.loadNpmTasks("grunt-contrib-watch");
 
-	grunt.registerTask("default", ["jshint", "concat", "uglify", "cssmin"]);
+	grunt.registerTask("default", ["jshint", "concat", "uglify", "less"]);
 
 };
