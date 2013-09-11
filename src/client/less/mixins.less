@@ -1,0 +1,11 @@
+/* app mixins and variables */
+
+@text-color: #333;
+@header-color: #000;
+@border-color: #999;
+
+.box-sizing(@box-model) {
+  -webkit-box-sizing: @box-model; // Safari <= 5
+     -moz-box-sizing: @box-model; // Firefox <= 19
+          box-sizing: @box-model;
+}
