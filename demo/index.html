@@ -3,13 +3,23 @@
 	<head>
 		<title>jQuery Boilerplate</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-		<script src="../src/client/js/jquery.tyrion-chat.js"></script>
-		<link rel="stylesheet" href="../src/client/css/jquery.tyrion-chat.css">
+		<script src="../dist/client/js/jquery.tyrion-chat.min.js"></script>
+		<link rel="stylesheet" href="../dist/client/css/jquery.tyrion-chat.min.css">
 	</head>
 	<body>
 		<script>
 			$(function() {
-				$("body").tyrionChat();
+				var userProfile = {
+					ID: '123456789',
+					name: 'User',
+					avatar: './avatar.jpg',
+					friends: [
+						{ID: '111', name: 'User 111', avatar: './avatar.jpg'},
+						{ID: '222', name: 'User 222', avatar: './avatar.jpg'},
+						{ID: '333', name: 'User 333', avatar: './avatar.jpg'}
+					]
+				}
+				$("body").tyrionChat(userProfile);
 			});
 		</script>
 	</body>
