@@ -10,11 +10,10 @@
 		// window and document are passed through as local variable rather than global
 		// as this (slightly) quickens the resolution process and can be more efficiently
 		// minified (especially when both are regularly referenced in your plugin).
-
+		"use strict";
 		// Create the defaults once
 		var pluginName = "tyrionChat",
 				defaults = {
-				propertyName: "value"
 				};
 
 		// The actual plugin constructor
@@ -59,7 +58,23 @@
 												"<div class='chat-header'>" +
 													"<a href='#'' class='chat-btn chat-btn-minimize'>-</a>" +
 												"</div>" +
-												"<div class='chat-body'></div>" +
+												"<div class='chat-body'>" +
+													"<div class='chat-conversation'>" +
+														"<div class='chat-user-photo'></div>" +
+														"<div class='chat-user-name'>Eder</div>" +
+														"<div class='chat-user-msg'>bla bla bla bla bla bla bla bla bla bla bla bla</div>" +
+													"</div>" +
+													"<div class='chat-conversation'>" +
+														"<div class='chat-user-photo'></div>" +
+														"<div class='chat-user-name'>Eder</div>" +
+														"<div class='chat-user-msg'>bla bla bla bla bla bla bla bla bla</div>" +
+													"</div>" +
+													"<div class='chat-conversation'>" +
+														"<div class='chat-user-photo'></div>" +
+														"<div class='chat-user-name'>Eder</div>" +
+														"<div class='chat-user-msg'>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</div>" +
+													"</div>" +
+												"</div>" +
 												"<div class='chat-footer'>" +
 													"<textarea></textarea>" +
 												"</div>");
