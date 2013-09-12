@@ -1,3 +1,11 @@
+/*
+ *  Tyrion Chat jQuery - v0.0.1
+ *  a simples chat system, like gTalk or facebook, and which always pays his debts.
+ *  https://github.com/ederFortunato//tyrion-chat/
+ *
+ *  Made by Eder Fortunato
+ *  Under MIT License
+ */
 // the semi-colon before function invocation is a safety net against concatenated
 // scripts and/or other plugins which may not be closed properly.
 ;(function ( $, window, document, undefined ) {
@@ -10,10 +18,14 @@
 		// window and document are passed through as local variable rather than global
 		// as this (slightly) quickens the resolution process and can be more efficiently
 		// minified (especially when both are regularly referenced in your plugin).
+
 		"use strict";
 		// Create the defaults once
 		var pluginName = "tyrionChat",
 				defaults = {
+					ID: '',
+					name: '',
+					friends: []
 				};
 
 		// The actual plugin constructor
@@ -33,13 +45,16 @@
 		Plugin.prototype = {
 
 				init: function () {
-
-						var $chat = $("<div class='chat-container'></div>");
+						var p = this.settings,
+							$chat = $("<div class='chat-container'></div>");
 
 						$(this.element).append($chat);
 
-						$chat.append(this.createRoom());
-						$chat.append(this.createRoom());
+						$chat.append(this.createUsersList(p.friends));
+
+						for (var idx in p.friends) {
+							$chat.append(this.createRoom(p.friends[idx]));
+						}
 
 						$chat.find(".chat-btn-minimize").click(function(e){
 							$(this).parent().parent().toggleClass("chat-minized");
@@ -53,31 +68,56 @@
 
 				},
 
-				createRoom: function () {
+				createUsersList: function (users) {
+					var html = "";
+
+					for (var idx in users) {
+							html += "<div class='chat-list-user'>" +
+												"<div class='chat-user-photo'></div>" +
+												"<div class='chat-user-link-name'>" + users[idx].name + "</div>" +
+												"<div class='chat-icon-online'></div>" +
+											"</div>";
+					}
+
+					return $("<div class='chat-box chat-box-friends'>" +
+										"<div class='chat-header'>" +
+											"<span class='chat-header-name'>My Friends</span>" +
+											"<a href='#'' class='chat-btn chat-btn-minimize'>_</a>" +
+										"</div>" +
+										"<div class='chat-body'>" +
+										html +
+										"</div>");
+
+				},
+
+				createRoom: function (user) {
 					return $("<div class='chat-box'>" +
-												"<div class='chat-header'>" +
-													"<a href='#'' class='chat-btn chat-btn-minimize'>-</a>" +
-												"</div>" +
-												"<div class='chat-body'>" +
-													"<div class='chat-conversation'>" +
-														"<div class='chat-user-photo'></div>" +
-														"<div class='chat-user-name'>Eder</div>" +
-														"<div class='chat-user-msg'>bla bla bla bla bla bla bla bla bla bla bla bla</div>" +
-													"</div>" +
-													"<div class='chat-conversation'>" +
-														"<div class='chat-user-photo'></div>" +
-														"<div class='chat-user-name'>Eder</div>" +
-														"<div class='chat-user-msg'>bla bla bla bla bla bla bla bla bla</div>" +
-													"</div>" +
-													"<div class='chat-conversation'>" +
-														"<div class='chat-user-photo'></div>" +
-														"<div class='chat-user-name'>Eder</div>" +
-														"<div class='chat-user-msg'>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</div>" +
-													"</div>" +
-												"</div>" +
-												"<div class='chat-footer'>" +
-													"<textarea></textarea>" +
-												"</div>");
+										"<div class='chat-header'>" +
+											"<span class='chat-icon-online'></span>" +
+											"<span class='chat-header-name'>" + user.name +"</span>" +
+											"<a href='#'' class='chat-btn chat-btn-close'>X</a>" +
+											"<a href='#'' class='chat-btn chat-btn-minimize'>_</a>" +
+										"</div>" +
+										"<div class='chat-body'>" +
+											"<div class='chat-conversation'>" +
+												"<div class='chat-user-photo'></div>" +
+												"<div class='chat-user-name'>Eder</div>" +
+												"<div class='chat-user-msg'>bla bla bla bla bla bla bla bla bla bla bla bla</div>" +
+											"</div>" +
+											"<div class='chat-conversation'>" +
+												"<div class='chat-user-photo'></div>" +
+												"<div class='chat-user-name'>Eder</div>" +
+												"<div class='chat-user-msg'>bla bla bla bla bla bla bla bla bla</div>" +
+											"</div>" +
+											"<div class='chat-conversation'>" +
+												"<div class='chat-user-photo'></div>" +
+												"<div class='chat-user-name'>Eder</div>" +
+												"<div class='chat-user-msg'>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</div>" +
+											"</div>" +
+										"</div>" +
+										"<div class='chat-footer'>" +
+											"<textarea></textarea>" +
+										"</div>");
 				}
 		};
 
