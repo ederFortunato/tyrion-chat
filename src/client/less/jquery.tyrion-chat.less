@@ -35,7 +35,7 @@
 			.chat-header-name{
 				color: #FFF;
 				margin-left: 7px;
-				margin-top: 3px;
+				margin-top: 5px;
 				display: inline-block;
 			}
 
@@ -52,7 +52,7 @@
 
 		.chat-footer{
 			width: 100%;
-			height: 34px;
+			height: 36px;
 			background-color: #FFF;
 
 			textarea{
@@ -65,33 +65,34 @@
 				.box-sizing(border-box);
 			}
 		}
-  }
+	}
 
-  .chat-box-friends{
-  	width: 180px;
+	.chat-box-friends{
+		width: 180px;
+		padding-bottom: 0;
 
-  	.chat-body{
-  		height: 175px;
-  	}
+		.chat-body{
+			height: 177px;
+		}
 
-  	.chat-list-user{
-  		padding-top: 5px;
-  		padding-bottom: 10px;
-  		cursor: pointer;
-  		padding-left: 5px;
+		.chat-list-user{
+			padding-top: 5px;
+			padding-bottom: 10px;
+			cursor: pointer;
+			padding-left: 5px;
 
-  		&:hover{
-  			background-color: #EBEBEB;
-  		}
+			&:hover{
+				background-color: #EBEBEB;
+			}
 
-  		div{
-  			display: inline-block;
-  			margin-right: 6px;
-  		}
+			div{
+				display: inline-block;
+				margin-right: 6px;
+			}
 
-  		.chat-user-link-name{
-  			margin-top: 6px;
-  		}
+			.chat-user-link-name{
+				margin-top: 6px;
+			}
 
 			.chat-user-photo{
 				margin-top: 3px;
@@ -101,17 +102,17 @@
 				background-color: #999;
 			}
 
-			.chat-icon-online{
+			.chat-icon-online, .chat-icon-offline{
 				float: right;
 				margin-top: 9px;
 				margin-right: 15px;
 			}
-  	}
-  }
+		}
+	}
 
-  .chat-minized{
+	.chat-minized{
 		height: 22px;
-		margin-top: 175px;
+		margin-top: 178px;
 
 		.chat-body{
 			display: none;
@@ -120,9 +121,9 @@
 		.chat-footer{
 			display: none;
 		}
-  }
+	}
 
-	.chat-icon-online{
+	.chat-icon-online, .chat-icon-offline{
 		width: 10px;
 		height: 10px;
 		margin-left: 5px;
@@ -131,7 +132,11 @@
 		background: #0c0;
 	}
 
-  .chat-btn{
+	.chat-icon-offline{
+		background: #ccc;
+	}
+
+	.chat-btn{
 		width: 20px;
 		height: 20px;
 		text-align: center;
@@ -147,7 +152,7 @@
 		&:hover{
 			background-color: #ccc;
 			color: #FFF;
-  	}
+		}
 	}
 
 	.chat-btn-close{
@@ -155,7 +160,7 @@
 		height: 17px;
 	}
 
-  .chat-conversation{
+	.chat-conversation{
 		padding-bottom: 10px;
 		margin: 5px 5px 15px 5px;
 		min-height: 35px;
@@ -177,5 +182,5 @@
 		.chat-user-msg{
 			color: @text-color;
 		}
-  }
+	}
 }
