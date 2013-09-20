@@ -62,6 +62,7 @@
 
 			for (i in p.friends) {
 				$chat.append(this.createRoom(p.friends[i]));
+				renderEmotions($chat.find(".chat-user-msg"));
 			}
 
 			$chat.find(".chat-btn-minimize").click(function(e){
@@ -115,12 +116,12 @@
 									"<div class='chat-conversation'>" +
 										"<div class='chat-user-photo'></div>" +
 										"<div class='chat-user-name'>Eder</div>" +
-										"<div class='chat-user-msg'>bla bla bla bla bla bla bla bla bla bla bla bla</div>" +
+										"<div class='chat-user-msg'>1bla :) bla bla ;) bla bla bla bla bla bla bla bla bla</div>" +
 									"</div>" +
 									"<div class='chat-conversation'>" +
 										"<div class='chat-user-photo'></div>" +
 										"<div class='chat-user-name'>Eder</div>" +
-										"<div class='chat-user-msg'>bla bla bla bla bla bla bla bla bla</div>" +
+										"<div class='chat-user-msg'>bla bla <3 bla bla bla bla bla bla bla</div>" +
 									"</div>" +
 									"<div class='chat-conversation'>" +
 										"<div class='chat-user-photo'></div>" +
@@ -133,6 +134,41 @@
 								"</div>");
 			}
 	};
+
+	function renderEmotions (target){
+		var opts = {
+			imgPath : "../img/emotions.png",
+			patterns : new Array("o:)",":3","o.O",":'(","3:)",":(",":O","8)",":D",">:(","<3","^_^",":*",":v",":)","-_-","8|",":p",":/",">:O",";)")
+		};
+
+		target.each(function(i, obj){
+			var j, repls, rstr,
+				_targer = $(obj),
+				imgHeight = 14,
+				allHeight = 280,
+				encoded = [];
+
+			for(i=0; i<opts.patterns.length; i++){
+				encoded[i] = String(opts.patterns[i]).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+			}
+
+			for(j=0; j<opts.patterns.length; j++){
+				repls = _targer.html();
+				if(repls.indexOf(opts.patterns[j]) || repls.indexOf(encoded[j])){
+					rstr = "<i style='background-image: url(" + opts.imgPath + ");" +
+											"display: inline-block;" +
+											"width: 16px;" +
+											"height: " + imgHeight + "px;" +
+											"vertical-align: -1px;" +
+											"background-repeat: no-repeat;" +
+											"background-position-y: -" + (allHeight - (j * imgHeight)) + "px;" +
+											"margin: 0'/></i>";
+					_targer.html(repls.replace(opts.patterns[j], rstr));
+					_targer.html(repls.replace(encoded[j], rstr));
+				}
+			}
+		});
+	}
 
 	// A really lightweight plugin wrapper around the constructor,
 	// preventing against multiple instantiations
